@@ -1,3 +1,3 @@
-### Webpack Vue template
+### Webpack React template
 
-## Basic webpack reactTS template
+## Basic webpack ReactTS template
