@@ -51,7 +51,9 @@ module.exports = (_, { mode }) => ({
         ]
     },
     devServer: {
-        port: 3000
+        port: 3000,
+        hot: true,
+        contentBase: './dist',
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
@@ -59,7 +61,8 @@ module.exports = (_, { mode }) => ({
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Webpack ReactTS template',
-            template: './index.html'
+            template: './index.html',
+            inject: 'body',
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
