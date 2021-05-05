@@ -5,8 +5,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = (_, { mode }) => ({
     entry: {
-        main: path.resolve(__dirname, 'src', 'main.tsx'),
-        // vendor: ['react', 'react-dom']
+        main:{
+            import: path.resolve(__dirname, 'src', 'main.tsx'),
+            dependOn: 'shared'
+        } ,
+        shared: ['react', 'react-dom']
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -54,6 +57,9 @@ module.exports = (_, { mode }) => ({
         port: 3000,
         hot: true,
         contentBase: './dist',
+    },
+    optimization: {
+        runtimeChunk: 'single',
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
